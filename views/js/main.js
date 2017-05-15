@@ -341,7 +341,7 @@ var isValid = function(selected, random) {
     }
   });
   return result;
-}
+};
 
 // Returns a string with random pizza ingredients nested inside <li> tags
 var makeRandomPizza = function() {
@@ -351,9 +351,9 @@ var makeRandomPizza = function() {
   var numberOfNonMeats = Math.floor((Math.random() * 3));
   var numberOfCheeses = Math.floor((Math.random() * 2));
 
-  var selected = [];
+  var selected = [], random;
   for (var i = 0; i < numberOfMeats; i++) {
-    var random = selectRandomMeat();
+    random = selectRandomMeat();
     if (isValid(selected, random)) {  // avoid needless duplication
       pizza = pizza + ingredientItemizer(random);
       selected.push(random);
@@ -362,7 +362,7 @@ var makeRandomPizza = function() {
 
   selected = [];
   for (var j = 0; j < numberOfNonMeats; j++) {
-    var random = selectRandomNonMeat();
+    random = selectRandomNonMeat();
     if (isValid(selected, random)) {  // avoid needless duplication
       pizza = pizza + ingredientItemizer(random);
       selected.push(random);
@@ -371,7 +371,7 @@ var makeRandomPizza = function() {
 
   selected = [];
   for (var k = 0; k < numberOfCheeses; k++) {
-    var random = selectRandomCheese();
+    random = selectRandomCheese();
     if (isValid(selected, random)) {  // avoid needless duplication
       pizza = pizza + ingredientItemizer(random);
       selected.push(random);
@@ -434,11 +434,11 @@ var resizePizzas = function(size) {
     switch(size) {
       case "1":
         document.querySelector("#pizzaSize").innerHTML = "Small";
-        width = "25%"
+        width = "25%";
         return;
       case "2":
         document.querySelector("#pizzaSize").innerHTML = "Medium";
-        width = "33.33%"
+        width = "33.33%";
         return;
       case "3":
         document.querySelector("#pizzaSize").innerHTML = "Large";
@@ -534,8 +534,8 @@ function updatePositions() {
 
   var phases = [];
   // generate all phase values before loop mover
-  for (var i = 0; i < 5; i++) {
-    phases.push(Math.sin((document.body.scrollTop / 1250) + (i % 5)));
+  for (var offset = 0; offset < 5; i++) {
+    phases.push(Math.sin((document.body.scrollTop / 1250) + (offset % 5)));
   }
   for (var i = 0; i < items.length; i++) {
     var phase = phases[i % 5];
