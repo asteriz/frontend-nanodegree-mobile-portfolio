@@ -534,7 +534,7 @@ function updatePositions() {
 
   var phases = [];
   // generate all phase values before loop mover
-  for (var offset = 0; offset < 5; i++) {
+  for (var offset = 0; offset < 5; offset++) {
     phases.push(Math.sin((document.body.scrollTop / 1250) + (offset % 5)));
   }
   for (var i = 0; i < items.length; i++) {
